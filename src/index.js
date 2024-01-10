@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 const input = document.getElementById("location");
 
-//Listen to when form is submitted and called getWeather function
+//Listen to when form is submitted and calls getWeather function
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   getWeather(input.value);
@@ -9,15 +9,19 @@ form.addEventListener("submit", (e) => {
 
 //Getting JSON data from Weather API using await fetch
 async function getWeather(location) {
-  const response = await fetch(
-    `https://api.weatherapi.com/v1/current.json?key=e3a2a8b3e8d34b518f0225440240901&q=${location}`,
-    { mode: "cors" }
-  );
-  const weatherData = await response.json();
-  const weatherDataObject = returnWeatherDataObject(weatherData);
-  console.log(weatherDataObject.weatherCondition);
+  try {
+    const response = await fetch(
+      `https://api.weatherapi.com/v1/current.json?key=e3a2a8b3e8d34b518f0225440240901&q=${location}`,
+      { mode: "cors" }
+    );
+    const weatherData = await response.json();
+    const weatherDataObject = returnWeatherDataObject(weatherData);
+    console.log(weatherDataObject.weatherCondition);
+  } catch (error) {
+    alert("Please enter valid location");
+    console.log(error);
+  }
 }
-
 //Using Factory Function to return weather Data object from JSON
 function returnWeatherDataObject(jsonObject) {
   const city = jsonObject.location.name;
@@ -46,5 +50,3 @@ function returnWeatherDataObject(jsonObject) {
     UV,
   };
 }
-
-//getWeather("New York");
