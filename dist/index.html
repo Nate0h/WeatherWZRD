@@ -9,18 +9,86 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="search-box">
-      <form id="form">
-        <input
-          type="text"
-          id="location"
-          name="location"
-          placeholder="Search Location..."
-          required
-        />
-
-        <button type="submit">Search</button>
-      </form>
+    <div class="container">
+      <nav class="top-nav">
+        <div class="title-logo">
+          <div class="title">Weather WIZRD</div>
+          <div class="logo">Logo</div>
+        </div>
+        <div class="search-box">
+          <form id="form">
+            <input
+              type="text"
+              id="location"
+              name="location"
+              placeholder="Search Location..."
+              required
+            />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <div class="settings">
+          <button class="metric"></button>
+          <button class="US"></button>
+        </div>
+      </nav>
+      <div class="main-content"></div>
+      <div class="content-header">
+        <h2>
+          <span class="city"></span>
+          <span class="country"></span>
+        </h2>
+        <div class="time"></div>
+      </div>
+      <div class="weather-main">
+        <div class="weather">
+          <span class="weather-icon"></span>
+          <span class="temperature">
+            <span class="temp-data"></span>
+            <span class="temp-unit"></span>
+          </span>
+          <div>
+            <p class="weather-descr">
+              <span class="feels-like"> </span>
+              <span class="temp-unit"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="weather-details">
+        <div class="details">
+          <p class="details-title"></p>
+          <p class="details-data"></p>
+        </div>
+        <div class="details">
+          <p class="details-title"></p>
+          <p class="details-data"></p>
+        </div>
+        <div class="details">
+          <p class="details-title"></p>
+          <p class="details-data"></p>
+        </div>
+        <div class="details">
+          <p class="details-title"></p>
+          <p class="details-data"></p>
+        </div>
+        <div class="details">
+          <p class="details-title"></p>
+          <p class="details-data"></p>
+        </div>
+        <div class="details">
+          <p class="details-title"></p>
+          <p class="details-data"></p>
+        </div>
+        <div class="details">
+          <p class="details-title"></p>
+          <p class="details-data"></p>
+        </div>
+      </div>
+      <div class="footer">
+        <p class="author"></p>
+        <img src="" alt="" />
+      </div>
     </div>
   </body>
 </html>

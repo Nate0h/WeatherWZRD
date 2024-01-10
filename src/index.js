@@ -18,7 +18,9 @@ async function getWeather(location) {
     const weatherDataObject = returnWeatherDataObject(weatherData);
     console.log(weatherDataObject.weatherCondition);
   } catch (error) {
-    alert("Please enter valid location");
+    alert(
+      "Location Not Found.\nPlease make sure search is a valid Zipcode, City, State or Country"
+    );
     console.log(error);
   }
 }
