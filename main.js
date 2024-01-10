@@ -1,0 +1,1 @@
+!async function(o){const a=await fetch("https://api.weatherapi.com/v1/current.json?key=e3a2a8b3e8d34b518f0225440240901&q=New York",{mode:"cors"}),e=await a.json();console.log(e)}();
