@@ -1,3 +1,12 @@
+const form = document.getElementById("form");
+const input = document.getElementById("location");
+
+//Listen to when form is submitted and called getWeather function
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getWeather(input.value);
+});
+
 //Getting JSON data from Weather API using await fetch
 async function getWeather(location) {
   const response = await fetch(
@@ -38,4 +47,4 @@ function returnWeatherDataObject(jsonObject) {
   };
 }
 
-getWeather("New York");
+//getWeather("New York");
