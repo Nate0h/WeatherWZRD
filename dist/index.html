@@ -12,8 +12,8 @@
     <div class="container">
       <nav class="top-nav">
         <div class="title-logo">
-          <div class="title">Weather WIZRD</div>
-          <div class="logo">Logo</div>
+          <span class="title">Weather WIZRD</span>
+          <img src="./images/meteor.png" alt="" class="logo" />
         </div>
         <div class="search-box">
           <form id="form">
@@ -24,65 +24,70 @@
               placeholder="Search Location..."
               required
             />
-            <button type="submit">Search</button>
+            <button class="search-button" type="submit">
+              <img
+                src="./images/Magnifying_glass_icon.png"
+                width="25"
+                height="25"
+                alt="submit"
+              />
+            </button>
           </form>
         </div>
-        <div class="settings">
-          <button class="metric"></button>
-          <button class="US"></button>
-        </div>
       </nav>
-      <div class="main-content"></div>
-      <div class="content-header">
-        <h2>
-          <span class="city"></span>
-          <span class="country"></span>
-        </h2>
-        <div class="time"></div>
-      </div>
-      <div class="weather-main">
-        <div class="weather">
-          <span class="weather-icon"></span>
-          <span class="temperature">
-            <span class="temp-data"></span>
-            <span class="temp-unit"></span>
-          </span>
-          <div>
-            <p class="weather-descr">
-              <span class="feels-like"> </span>
-              <span class="temp-unit"></span>
-            </p>
+      <div class="main-content">
+        <div class="content-header">
+          <h2>
+            <span class="city">City</span>,
+            <span class="country">Country</span>
+          </h2>
+          <div class="time">2:42</div>
+        </div>
+        <div class="weather-content">
+          <div class="weather-main">
+            <div class="weather">
+              <div class="temperature">
+                <span class="temp-data">34</span
+                ><span class="temp-unit">°F</span>
+              </div>
+            </div>
+            <div>
+              <div class="weather-descr">
+                <img src="" alt="GRR" class="weather-icon" />
+                <div class="state">Clear Sky</div>
+                <span class="feels-like"
+                  >Feels like <span class="temp-data">20</span
+                  ><span class="temp-unit">°F</span></span
+                >
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="weather-details">
-        <div class="details">
-          <p class="details-title"></p>
-          <p class="details-data"></p>
-        </div>
-        <div class="details">
-          <p class="details-title"></p>
-          <p class="details-data"></p>
-        </div>
-        <div class="details">
-          <p class="details-title"></p>
-          <p class="details-data"></p>
-        </div>
-        <div class="details">
-          <p class="details-title"></p>
-          <p class="details-data"></p>
-        </div>
-        <div class="details">
-          <p class="details-title"></p>
-          <p class="details-data"></p>
-        </div>
-        <div class="details">
-          <p class="details-title"></p>
-          <p class="details-data"></p>
-        </div>
-        <div class="details">
-          <p class="details-title"></p>
-          <p class="details-data"></p>
+          <div class="weather-details">
+            <div class="details">
+              <p class="details-title">Wind</p>
+              <p class="details-data"></p>
+            </div>
+            <div class="details">
+              <p class="details-title">Humidity</p>
+              <p class="details-data"></p>
+            </div>
+            <div class="details">
+              <p class="details-title">UV Index</p>
+              <p class="details-data"></p>
+            </div>
+            <div class="details">
+              <p class="details-title">Visibility</p>
+              <p class="details-data"></p>
+            </div>
+            <div class="details">
+              <p class="details-title">Cloudiness</p>
+              <p class="details-data"></p>
+            </div>
+            <div class="details">
+              <p class="details-title">Chance of Rain</p>
+              <p class="details-data"></p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="footer">

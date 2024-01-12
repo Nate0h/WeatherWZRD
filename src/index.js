@@ -1,10 +1,20 @@
 const form = document.getElementById("form");
 const input = document.getElementById("location");
 
+const city = document.querySelector(".city");
+const country = document.querySelector(".country");
+const time = document.querySelector(".time");
+const temperatureFahr = document.querySelector(".temperature .temp-data");
+const weatherState = document.querySelector(".state");
+const temperatureFeelsFahr = document.querySelector(
+  ".weather-descr .temp-data"
+);
+
 //Listen to when form is submitted and calls getWeather function
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   getWeather(input.value);
+  input.value = "";
 });
 
 //Getting JSON data from Weather API using await fetch
@@ -16,7 +26,8 @@ async function getWeather(location) {
     );
     const weatherData = await response.json();
     const weatherDataObject = returnWeatherDataObject(weatherData);
-    console.log(weatherDataObject.weatherCondition);
+    populateUI(weatherDataObject);
+    console.log(weatherDataObject);
   } catch (error) {
     alert(
       "Location Not Found.\nPlease make sure search is a valid Zipcode, City, State or Country"
@@ -26,8 +37,9 @@ async function getWeather(location) {
 }
 //Using Factory Function to return weather Data object from JSON
 function returnWeatherDataObject(jsonObject) {
+  const time = jsonObject.location.localtime;
   const city = jsonObject.location.name;
-  const country = jsonObject.location.name;
+  const country = jsonObject.location.country;
   const weatherCondition = jsonObject.current.condition.text;
   const tempF = jsonObject.current.temp_f;
   const tempC = jsonObject.current.temp_c;
@@ -41,6 +53,7 @@ function returnWeatherDataObject(jsonObject) {
   return {
     city,
     country,
+    time,
     weatherCondition,
     tempF,
     tempC,
@@ -51,4 +64,13 @@ function returnWeatherDataObject(jsonObject) {
     humidity,
     UV,
   };
+}
+
+function populateUI(weatherDataObject) {
+  city.textContent = weatherDataObject.city;
+  country.textContent = weatherDataObject.country;
+  time.textContent = weatherDataObject.time;
+  temperatureFahr.textContent = weatherDataObject.tempF;
+  temperatureFeelsFahr.textContent = weatherDataObject.feelsLikeF;
+  weatherState.textContent = weatherDataObject.weatherCondition;
 }
