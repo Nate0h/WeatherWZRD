@@ -100,3 +100,5 @@ switchTemp.addEventListener("click", (e) => {
   e.stopPropagation();
   e.preventDefault();
 });
+
+getWeather("Tokyo", unit);
