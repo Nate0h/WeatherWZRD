@@ -168,12 +168,14 @@
 
 #switch {
   align-self: center;
-  height: 55px;
+  height: 35px;
+  width: 100px;
   outline: none;
   border: none;
   font-size: 1rem;
   border-radius: 12px;
   transition: background-color ease-in 0.2s;
+  cursor: pointer;
 }
 
 #switch:hover {
