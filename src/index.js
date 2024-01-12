@@ -1,5 +1,8 @@
+//Search bar to find weather for entered location
 const form = document.getElementById("form");
 const input = document.getElementById("location");
+
+//References the details of weather in UI for given location
 const switchTemp = document.getElementById("switch");
 const city = document.querySelector(".city");
 const country = document.querySelector(".country");
@@ -9,13 +12,16 @@ const weatherState = document.querySelector(".state");
 const temperatureFeelsLike = document.querySelector(
   ".weather-descr .temp-data"
 );
-let unit = "°F";
-
 const tempUnit = document.querySelectorAll(".temp-unit");
 const weatherIcon = document.querySelector(".weather-icon");
 const wind = document.querySelector(".wind");
 const humidity = document.querySelector(".humidity");
 const UVIndex = document.querySelector(".uv-index");
+
+//Keeps tracks of current unit of temperature
+let unit = "°F";
+
+getWeather("Tokyo", unit);
 
 //Listen to when form is submitted and calls getWeather function
 form.addEventListener("submit", (e) => {
@@ -72,6 +78,7 @@ function returnWeatherDataObject(jsonObject) {
   };
 }
 
+//Populates the UI of the weather web app using the DOM objects instantiated at top
 function populateUI(weatherDataObject, unit) {
   if (unit === "°F") {
     temperature.textContent = weatherDataObject.tempF;
@@ -94,11 +101,10 @@ function populateUI(weatherDataObject, unit) {
   weatherIcon.src = weatherDataObject.icon;
 }
 
+//Button to toggle between Celsuis and Fahrenheit temps
 switchTemp.addEventListener("click", (e) => {
   unit = unit === "°F" ? "°C" : "°F";
   getWeather(city.textContent, unit);
   e.stopPropagation();
   e.preventDefault();
 });
-
-getWeather("Tokyo", unit);
