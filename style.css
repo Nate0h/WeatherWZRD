@@ -165,6 +165,21 @@
 .humidity + span {
   font-size: 1.6rem;
 }
+
+#switch {
+  align-self: center;
+  height: 55px;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: background-color ease-in 0.2s;
+}
+
+#switch:hover {
+  background-color: var(--red);
+  border: rgb(84, 18, 84) solid 5px;
+}
 .footer {
   background-color: black;
 }
