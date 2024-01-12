@@ -1,4 +1,3 @@
-import { weatherIcons } from "./icons";
 const form = document.getElementById("form");
 const input = document.getElementById("location");
 
@@ -11,6 +10,9 @@ const temperatureFeelsFahr = document.querySelector(
   ".weather-descr .temp-data"
 );
 const weatherIcon = document.querySelector(".weather-icon");
+const wind = document.querySelector(".wind");
+const humidity = document.querySelector(".humidity");
+const UVIndex = document.querySelector(".uv-index");
 
 //Listen to when form is submitted and calls getWeather function
 form.addEventListener("submit", (e) => {
@@ -43,32 +45,28 @@ function returnWeatherDataObject(jsonObject) {
   const city = jsonObject.location.name;
   const country = jsonObject.location.country;
   const weatherCondition = jsonObject.current.condition.text;
-  const weatherCode = jsonObject.current.condition.code;
+  const icon = jsonObject.current.condition.icon;
   const tempF = jsonObject.current.temp_f;
   const tempC = jsonObject.current.temp_c;
   const feelsLikeF = jsonObject.current.feelslike_f;
   const feelsLikeC = jsonObject.current.feelslike_c;
-  const windMPH = jsonObject.current.wind_mph;
-  const windKPH = jsonObject.current.wind_kph;
+  const wind = jsonObject.current.wind_mph;
   const humidity = jsonObject.current.humidity;
-  const UV = jsonObject.current.uv;
-  const isDay = jsonObject.current.is_day;
+  const uv = jsonObject.current.uv;
 
   return {
     city,
     country,
     time,
     weatherCondition,
-    weatherCode,
+    icon,
     tempF,
     tempC,
     feelsLikeF,
     feelsLikeC,
-    windMPH,
-    windKPH,
+    wind,
     humidity,
-    UV,
-    isDay,
+    uv,
   };
 }
 
@@ -79,16 +77,8 @@ function populateUI(weatherDataObject) {
   temperatureFahr.textContent = weatherDataObject.tempF;
   temperatureFeelsFahr.textContent = weatherDataObject.feelsLikeF;
   weatherState.textContent = weatherDataObject.weatherCondition;
-
-  if (weatherDataObject.isDay) {
-    weatherIcon.src = `./images/day/${weatherIcons.get(
-      weatherDataObject.weatherCode
-    )}.png`;
-  } else {
-    weatherIcon.src = `./images/night/${weatherIcons.get(
-      weatherDataObject.weatherCode
-    )}.png`;
-  }
+  wind.textContent = weatherDataObject.wind;
+  humidity.textContent = weatherDataObject.humidity;
+  UVIndex.textContent = weatherDataObject.uv;
+  weatherIcon.src = weatherDataObject.icon;
 }
-
-function generateWeatherImage(weatherState) {}
