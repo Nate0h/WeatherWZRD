@@ -145,9 +145,26 @@
 
 .details {
   text-align: center;
-  border: red solid 2px;
+  border: rgb(84, 18, 84) solid 3px;
+  border-radius: 3px;
+  background-color: rgba(205, 207, 191, 0.801);
+}
+.details-title {
+  color: rgb(84, 18, 84);
+  font-weight: 700;
+  background-color: var(--red);
+  border-bottom: rgb(84, 18, 84) solid 2px;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
 }
 
+.wind,
+.humidity,
+.uv-index,
+.metric,
+.humidity + span {
+  font-size: 1.6rem;
+}
 .footer {
   background-color: black;
 }
