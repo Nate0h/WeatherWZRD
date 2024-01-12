@@ -119,6 +119,11 @@
   color: rgba(231, 231, 231, 0.674);
 }
 
+.weather-icon {
+  width: 100px;
+  height: 100px;
+}
+
 .weather-descr {
   text-align: center;
   color: rgba(231, 231, 231, 0.674);
