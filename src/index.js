@@ -1,3 +1,4 @@
+import { weatherIcons } from "./icons";
 const form = document.getElementById("form");
 const input = document.getElementById("location");
 
@@ -9,6 +10,7 @@ const weatherState = document.querySelector(".state");
 const temperatureFeelsFahr = document.querySelector(
   ".weather-descr .temp-data"
 );
+const weatherIcon = document.querySelector(".weather-icon");
 
 //Listen to when form is submitted and calls getWeather function
 form.addEventListener("submit", (e) => {
@@ -27,7 +29,7 @@ async function getWeather(location) {
     const weatherData = await response.json();
     const weatherDataObject = returnWeatherDataObject(weatherData);
     populateUI(weatherDataObject);
-    console.log(weatherDataObject);
+    console.log(weatherData);
   } catch (error) {
     alert(
       "Location Not Found.\nPlease make sure search is a valid Zipcode, City, State or Country"
@@ -41,6 +43,7 @@ function returnWeatherDataObject(jsonObject) {
   const city = jsonObject.location.name;
   const country = jsonObject.location.country;
   const weatherCondition = jsonObject.current.condition.text;
+  const weatherCode = jsonObject.current.condition.code;
   const tempF = jsonObject.current.temp_f;
   const tempC = jsonObject.current.temp_c;
   const feelsLikeF = jsonObject.current.feelslike_f;
@@ -49,12 +52,14 @@ function returnWeatherDataObject(jsonObject) {
   const windKPH = jsonObject.current.wind_kph;
   const humidity = jsonObject.current.humidity;
   const UV = jsonObject.current.uv;
+  const isDay = jsonObject.current.is_day;
 
   return {
     city,
     country,
     time,
     weatherCondition,
+    weatherCode,
     tempF,
     tempC,
     feelsLikeF,
@@ -63,6 +68,7 @@ function returnWeatherDataObject(jsonObject) {
     windKPH,
     humidity,
     UV,
+    isDay,
   };
 }
 
@@ -73,4 +79,16 @@ function populateUI(weatherDataObject) {
   temperatureFahr.textContent = weatherDataObject.tempF;
   temperatureFeelsFahr.textContent = weatherDataObject.feelsLikeF;
   weatherState.textContent = weatherDataObject.weatherCondition;
+
+  if (weatherDataObject.isDay) {
+    weatherIcon.src = `./images/day/${weatherIcons.get(
+      weatherDataObject.weatherCode
+    )}.png`;
+  } else {
+    weatherIcon.src = `./images/night/${weatherIcons.get(
+      weatherDataObject.weatherCode
+    )}.png`;
+  }
 }
+
+function generateWeatherImage(weatherState) {}
