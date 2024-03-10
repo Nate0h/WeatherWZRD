@@ -1,10 +1,10 @@
-# Weather WZRD - [Live Demo](https://nate0h.github.io/weather-app/)
+# Weather WZRD - [Live Demo](https://nate0h.github.io/WeatherWZRD/)
 
 ### Built With
 - HTML 
 - JavaScript
 - Webpack
-- Prettier
+- ESLint-Prettier
 
 ## Project Overview
 
