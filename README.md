@@ -23,6 +23,6 @@ Welcome to Weather WZRD, your go-to weather app for real-time weather updates. T
 
 ## Live Demo
 
-Explore the Weather WZRD live demo to stay informed about the weather in your area and around the world. [Weather WZRD - Live Demo](https://nate0h.github.io/weather-app/)
+Explore the Weather WZRD live demo to stay informed about the weather in your area and around the world. [Weather WZRD - Live Demo](https://nate0h.github.io/WeatherWZRD/)
 
 Stay ahead of the weather with Weather WZRD!
